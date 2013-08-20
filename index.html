@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Intel</title>
+<link type="text/css" rel="stylesheet" href="resource/css/style.css" />
+</head>
+<body>
+
+<div id="main">
+<img id="g_bg" src="resource/images/bg1920.jpg" />
+
+<img id="b_sushe" src="resource/images/sushe.png" />
+<img id="b_lake" src="resource/images/lake.png" />
+<img id="b_sport" src="resource/images/sport.png" />
+<img id="b_library" src="resource/images/library.png" />
+<img id="b_jiaoxuelou" src="resource/images/jiaoxuelou.png" />
+<img id="b_announce" src="resource/images/announce.png" />
+<img id="b_wellandtree" src="resource/images/wellandtree.png" />
+<img id="b_yushi" src="resource/images/yushi.png" />
+<img id="b_shitang" src="resource/images/shitang.png" />
+<img id="b_xiaomaipu" src="resource/images/xiaomaipu.png" />
+<canvas id="subline" width="1920" height="1080"></canvas>
+
+</div>
+<script src="resource/js/jquery-1.9.1.min.js"></script>
+<script src="resource/js/vector.js"></script>
+<script>
+//公告牌
+var p = new Polygon([[142, 385], [142, 460], [254, 400], [254, 327]]);
+//[[274, 281], [274, 412], [450, 500], [690, 367], [690, 224], [530, 140]]
+//宿舍楼
+var p2 = new Polygon([[274, 281], [274, 412], [450, 500], [690, 367], [690, 224], [530, 140]]);
+//树井
+//[35,444], [4, 498], [34, 602], [108, 624], [183, 619], [144, 467], [95, 426]
+var p3 = new Polygon([[35,444], [4, 498], [34, 602], [108, 624], [183, 619], [144, 467], [95, 426]]);
+//浴室
+//[342, 553], [189, 660], [191, 722], [259, 756], [393, 761], [484, 732], [477, 650], [457, 612]
+//餐厅
+//[499, 709], [449, 835], [593, 908], [765, 820], [620, 650]
+//小卖铺
+//[892, 807], [756, 872], [760, 1000], [900, 1056], [1033, 1000], [1037, 874]
+//教学楼
+//[916, 656], [916, 780], [1104, 878], [1420, 697], [1420, 577], [1230,475]
+//图书馆
+//[553, 466],[532 519], [530, 632], [677, 702 ], [1042, 510], [1039, 417], [1006, 318], [867 ,306]
+//湖泊
+//[926, 330] ,[1085, 423], [1357, 282], [1179, 189]
+//体育馆
+//[1034, 407], [1381, 498], [1482, 548], [1723, 414], [1414, 226]
+//p.draw('subline');
+//p2.draw('subline');
+
+$('#main').mousemove(function(e){
+	if(p.collision(e.clientX, e.clientY)){
+		console.log('进入了公告牌');
+	}
+	
+	if(p2.collision(e.clientX, e.clientY)){
+		console.log('进入了宿舍楼');
+	}
+});
+
+$(window).resize(function(e){
+	var percent = $('#main').width() / 1920;
+	p.resize(percent);
+	p.draw('subline');
+	p2.resize(percent);
+	p2.draw('subline');
+	p3.resize(percent);
+	p3.draw('subline');
+});
+
+</script>
+</body>
+</html>

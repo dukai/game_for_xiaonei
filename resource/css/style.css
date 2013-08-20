@@ -1,0 +1,109 @@
+/*global start reset*/
+body {
+	margin:0;
+	padding:0;
+	font-size:14px;
+	font-family:"Microsoft YaHei";
+}
+ul, ol, li {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+p, input, button,table, tr, th, td, thead, tbody ,pre{
+	padding:0;
+	margin:0;
+	font-family:"Microsoft YaHei";
+}
+h1, h2, h3, h4, h5, blockquote, dl, dt, dd {
+	margin:0;
+	padding:0;
+	font-weight:normal;
+}
+em, cite, i{font-style:normal;}
+img{border:none;}
+a {
+	text-decoration:none;
+	color:#666;
+}
+a:hover{color:#007ad5;}
+.clr {
+	clear:both;
+}
+.fixedbox {
+	width:1200px;
+	margin:0 auto;
+}
+.noboder{border:0 !important;}
+.nomargin{margin:0 !important;}
+
+#main{
+	width:100%;
+	position:relative;
+}
+
+#g_bg{
+	display:block;
+	width:100%;
+}
+#b_sushe, #b_lake, #b_sport, #b_library, #b_jiaoxuelou, #b_announce, #b_wellandtree, #b_yushi, #b_shitang, #b_xiaomaipu{
+	position:absolute;
+}
+#b_sushe{
+	top:13%;
+	left:11.98%;
+	width:26.56%;
+}
+#b_lake{
+	width:25%;
+	left:46.51%;
+	top:11.5%;
+}
+
+#b_sport{
+	width:21.35%;
+	left:67.45%;
+	top:21%;
+}
+
+#b_library{
+	width:29.69%;
+	left:25.67708333333333%;
+	top:27.5%;
+}
+#b_jiaoxuelou{
+	width:34.375%;
+	left:43.54166666666667%;
+	top:43%;
+}
+#b_announce{
+	width:7.29166666666667%;
+	left:6.66666666666667%;
+	top:29.5%;
+}
+#b_wellandtree{
+	width:9.89583333333333%;
+	left:0;
+	top:38%;
+}
+#b_yushi{
+	width:19.79166666666667%;
+	left:7.91666666666667%;
+	top:47%;
+}
+#b_shitang{
+	width:17.70833333333333%;
+	left:22.23958333333333%;
+	top:60%;
+}
+#b_xiaomaipu{
+	width:18.22916666666667%;
+	left:36.71875%;
+	top:72.5%;
+}
+
+#subline{
+	position:absolute;
+	top:0;
+	left:0;
+}
