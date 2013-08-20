@@ -20,22 +20,42 @@
 <img id="b_yushi" src="resource/images/yushi.png" />
 <img id="b_shitang" src="resource/images/shitang.png" />
 <img id="b_xiaomaipu" src="resource/images/xiaomaipu.png" />
+
+<img id="menu" src="resource/images/menu.png" />
+<img id="userinfo" src="resource/images/userinfo.png" />
+<img id="logo" src="resource/images/logo.png" />
+<div class="bubble">
+	<img src="resource/images/bubble.png" />
+	<span>999+</span>
+</div>
+
+<div class="bubble small">
+	<img src="resource/images/bubble.png" />
+	<span>1</span>
+</div>
+
+
+<div id="school">中国海洋大学</div>
+
 <canvas id="subline" width="1920" height="1080"></canvas>
 
 </div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
 <script src="resource/js/vector.js"></script>
+<script src="resource/js/event-manager.js"></script>
 <script>
-
+/**
+ * bubble 尺寸与字体大小的比例 0.3072
+ */
 var context = document.getElementById('subline').getContext('2d');
 //公告牌
-var p = new Polygon([[142, 385], [142, 460], [254, 400], [254, 327]]);
+//var p = new Polygon([[142, 385], [142, 460], [254, 400], [254, 327]]);
 //[[274, 281], [274, 412], [450, 500], [690, 367], [690, 224], [530, 140]]
 //宿舍楼
-var p2 = new Polygon([[274, 281], [274, 412], [450, 500], [690, 367], [690, 224], [530, 140]]);
+//var p2 = new Polygon([[274, 281], [274, 412], [450, 500], [690, 367], [690, 224], [530, 140]]);
 //树井
 //[0,501], [46, 609], [181, 629], [185, 500], [115, 448]
-var p3 = new Polygon([[0,501], [46, 609], [181, 629], [185, 500], [115, 448]]);
+//var p3 = new Polygon([[0,501], [46, 609], [181, 629], [185, 500], [115, 448]]);
 //浴室
 //[342, 553], [189, 660], [191, 722], [259, 756], [393, 761], [484, 732], [477, 650], [457, 612]
 //餐厅
@@ -79,97 +99,7 @@ for(var i= 0, len = buildingsCoordinates.length; i < len; i++){
 }
 //p.draw('subline');
 //p2.draw('subline');
-MouseEventManager = {
-	_mousemove: function(e){
-		this._setPointerPosition(e);
-		var pos = this._getPointerPosition();
-		for(var i in this._eventsPool.mouseover){
-				var event = this._eventsPool.mouseover[i];
-				var status = event.target.collision(pos[0], pos[1]);
-				
-				if(event.target.mouseStatus === undefined){
-					event.target.mouseStatus = status;
-					
-					status && event.callback.call(event.target, e);
-				}else{
-					if(!event.target.mouseStatus){
-						status && event.callback.call(event.target, e);
-						event.target.mouseStatus = status;
-					}
-				}
-			}
-			
-			for(var i in this._eventsPool.mouseout){
-				var event = this._eventsPool.mouseout[i];
-				var status = event.target.collision(pos[0], pos[1]);
-				
-				if(event.target.mouseStatus === undefined){
-					event.target.mouseStatus = status;
-					if(!status){
-						event.callback.call(event.target, e);
-					}
-					
-				}else{
-					if(event.target.mouseStatus){
-						status || event.callback.call(event.target, e);
-						event.target.mouseStatus = status;
-					}
-				}
-			}
-	},
-	
-	_setPointerPosition: function(e){
-		this._mouseX = e.offsetX;
-		this._mouseY = e.offsetY;
-	},
-	_getPointerPosition: function(){
-		return [this._mouseX, this._mouseY];
-	},
-	
-	_eventsPool: {
-		keydown: {},
-		keyup: {},
-		click: {},
-		keypress: {},
-		mousemove: {},
-		mouseover: {},
-		mouseout: {},
-		collide: {},
-		hit: {}
-	},
-	_guid: 1,
-	_getGuid: function(){
-		return this._guid++;
-	},
-	
-	add: function(eventType, target, listener){
-		listener.__guid = this._getGuid();
-		var event = {
-			target: target, 
-			callback: listener,
-			init: false,
-			guid: listener.__guid
-		};	
-		
-		if(eventType == 'mouseover' || eventType == 'mouseout'){
-			event.target.__mouseover = false;
-		}
-		
-		this._eventsPool[eventType][listener.__guid] = event;
-	},
-	
-	remove: function(eventType, target, listener){
-		var guid = listener.__guid;
-		delete this._eventsPool[eventType][guid];
-	},
-	
-	init: function(selector){
-		var self = this;
-		$(selector).mousemove(function(e){
-			self._mousemove(e);
-		});
-	}
-};
+
 
 MouseEventManager.init('#main');
 /*
@@ -210,13 +140,20 @@ MouseEventManager.add('mouseout', ps[1], function(){
 
 
 $(window).resize(function(e){
+	resizeBuildingsRegion();
+});
+
+var resizeBuildingsRegion = function(){
 	context.clearRect(0, 0, 1920, 1080);
 	var percent = $('#main').width() / 1920;
+	$('body').css('font-size', $('#main').width() + 'px');
 	for(var i = 0, len = ps.length; i< len; i++){
 		ps[i].resize(percent);
-		ps[i].draw(context);
+		//ps[i].draw(context);
 	}
-});
+};
+
+resizeBuildingsRegion();
 
 </script>
 </body>
