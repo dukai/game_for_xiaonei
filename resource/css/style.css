@@ -2,7 +2,8 @@
 body {
 	margin:0;
 	padding:0;
-	font-size:14px;
+	font-size:1920px;
+	line-height:1;
 	font-family:"Microsoft YaHei";
 }
 ul, ol, li {
@@ -46,7 +47,7 @@ a:hover{color:#007ad5;}
 	display:block;
 	width:100%;
 }
-#b_sushe, #b_lake, #b_sport, #b_library, #b_jiaoxuelou, #b_announce, #b_wellandtree, #b_yushi, #b_shitang, #b_xiaomaipu{
+#b_sushe, #b_lake, #b_sport, #b_library, #b_jiaoxuelou, #b_announce, #b_wellandtree, #b_yushi, #b_shitang, #b_xiaomaipu, #menu, #logo, #userinfo, .bubble, #school{
 	position:absolute;
 }
 #b_sushe{
@@ -102,8 +103,71 @@ a:hover{color:#007ad5;}
 	top:72.5%;
 }
 
+#menu{
+	width:10.52083333333333%;
+	left:0;
+	bottom:0;
+}
+
+#userinfo{
+	width:27.1875%;
+	top:0;
+	right:0;
+}
+
+#logo{
+	width:24.27083333333333%;
+	left:0;
+	top:0;
+}
+
 #subline{
 	position:absolute;
 	top:0;
 	left:0;
+}
+
+.bubble.small{
+	width:3.90625%;
+	height:9.25925925925926%;
+	left:60%;
+	top:60%;
+}
+
+.bubble{
+	width:9.47916666666667%;
+	height:22.59259259259259%;
+	left:30%;
+	top:30%;
+}
+.bubble img{
+	display:block;
+	width:100%;
+}
+.bubble span{
+	position:absolute;
+	z-index:9;
+	font-size:2.912000000000001%;
+	/*top:24.59016393442623%;*/
+	top:0;
+	left:0;
+	display:block;
+	width:100%;
+	height:100%;
+	text-align:center;
+	color:#959595;
+	line-height:3;
+}
+.bubble.small span{
+	font-size:1.2%;
+	
+}
+
+#school{
+	width:11.97916666666667%;
+	height:2.77777777777778%;
+	right:7.1875%;
+	bottom:17.31481481481481%;
+	font-size:1.14583333333333%;
+	text-align:center;
 }
