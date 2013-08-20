@@ -38,7 +38,9 @@ Vector2D.prototype = {
 		return new Vector(this.x, this.y);
 	}
 };
-
+/**
+ * clone method for Array 
+ */
 Array.prototype.clone = function(){
 	var t = [];
 	for(var i = 0, len = this.length; i < len; i++){
@@ -84,10 +86,8 @@ Polygon.prototype = {
 		}
 	},
 	
-	draw: function(id){
-		var canvas = document.getElementById(id);
-		var context = canvas.getContext('2d');
-		context.clearRect(0,0,1920,1080);
+	draw: function(context){
+		//context.clearRect(0,0,1920,1080);
 		context.beginPath()
 		var coordinates = this.coordinates;
 		context.moveTo(coordinates[0][0], coordinates[0][1]);
@@ -98,4 +98,8 @@ Polygon.prototype = {
 		context.fillStyle = "rgba(255, 0, 0, .5)";
 		context.fill();
 	}
+};
+
+var EventDispatcher = function(){
+	
 };
