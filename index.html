@@ -47,7 +47,7 @@
 /**
  * bubble 尺寸与字体大小的比例 0.3072
  */
-var context = document.getElementById('subline').getContext('2d');
+
 //公告牌
 //var p = new Polygon([[142, 385], [142, 460], [254, 400], [254, 327]]);
 //[[274, 281], [274, 412], [450, 500], [690, 367], [690, 224], [530, 140]]
@@ -142,9 +142,9 @@ MouseEventManager.add('mouseout', ps[1], function(){
 $(window).resize(function(e){
 	resizeBuildingsRegion();
 });
-
+//var context = document.getElementById('subline').getContext('2d');
 var resizeBuildingsRegion = function(){
-	context.clearRect(0, 0, 1920, 1080);
+	//context.clearRect(0, 0, 1920, 1080);
 	var percent = $('#main').width() / 1920;
 	$('body').css('font-size', $('#main').width() + 'px');
 	for(var i = 0, len = ps.length; i< len; i++){

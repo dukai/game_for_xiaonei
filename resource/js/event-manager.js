@@ -38,8 +38,8 @@ MouseEventManager = {
 	},
 	
 	_setPointerPosition: function(e){
-		this._mouseX = e.offsetX ? e.offsetX : e.pageX;
-		this._mouseY = e.offsetY ? e.offsetY : e.pageY;
+		this._mouseX = e.pageX;
+		this._mouseY = e.pageY;
 	},
 	_getPointerPosition: function(){
 		return [this._mouseX, this._mouseY];
