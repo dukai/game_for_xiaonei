@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Intel</title>
+</head>
+<body>
+	<div id="test" style="width:300px;height:300px;background:#f00;"></div>
+	<script src="resource/js/jquery-1.9.1.min.js"></script>
+	<script>
+	var img1 = new Image();
+	img1.src = "resource/images/bg1920.jpg";
+	var img2 = new Image();
+	img2.src = "resource/images/jiaoxuelou.png";
+	var i = 1;
+	$("#test").click(function(){
+		this.innerHTML = '';
+		(i % 2 == 0) ?  this.appendChild(img1) : this.appendChild(img2);
+		
+		i++;
+	});
+	</script>
+</body>
+</html>
