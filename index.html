@@ -8,25 +8,30 @@
 <body>
 
 <div id="main">
-<div id="layer1" class="layer">
-	<img id="g_bg" src="resource/images/bg1920.jpg" />	
+<img id="g_bg" src="resource/images/bg1920.jpg" />	
+
+<div id="layer2" class="layer">
+	<img id="b_sushe" src="resource/images/sushe.png" />
+	<img id="b_lake" src="resource/images/lake.png" />
+	<img id="b_sport" src="resource/images/sport.png" />
+	<img id="b_library" src="resource/images/library.png" />
+	<img id="b_jiaoxuelou" src="resource/images/jiaoxuelou.png" />
+	<img id="b_announce" src="resource/images/announce.png" />
+	<img id="b_wellandtree" src="resource/images/wellandtree.png" />
+	<img id="b_yushi" src="resource/images/yushi.png" />
+	<img id="b_shitang" src="resource/images/shitang.png" />
+	<img id="b_xiaomaipu" src="resource/images/xiaomaipu.png" />
+	<img id="b_shubaoting" src="resource/images/shubaoting.png" />	
+</div>
+
+<div class="layer_ui" class="layer">
+	<img id="menu" src="resource/images/menu.png" />
+	<img id="userinfo" src="resource/images/userinfo.png" />
+	<img id="logo" src="resource/images/logo.png" />	
 </div>
 
 
-<img id="b_sushe" src="resource/images/sushe.png" />
-<img id="b_lake" src="resource/images/lake.png" />
-<img id="b_sport" src="resource/images/sport.png" />
-<img id="b_library" src="resource/images/library.png" />
-<img id="b_jiaoxuelou" src="resource/images/jiaoxuelou.png" />
-<img id="b_announce" src="resource/images/announce.png" />
-<img id="b_wellandtree" src="resource/images/wellandtree.png" />
-<img id="b_yushi" src="resource/images/yushi.png" />
-<img id="b_shitang" src="resource/images/shitang.png" />
-<img id="b_xiaomaipu" src="resource/images/xiaomaipu.png" />
 
-<img id="menu" src="resource/images/menu.png" />
-<img id="userinfo" src="resource/images/userinfo.png" />
-<img id="logo" src="resource/images/logo.png" />
 <!--div class="bubble">
 	<img src="resource/images/bubble.png" />
 	<span>999+</span>
@@ -100,29 +105,78 @@ for(var i= 0, len = buildingsCoordinates.length; i < len; i++){
 	ps.push(new Polygon(buildingsCoordinates[i]));
 }
 
+var mouseoverEvents = [
+	{
+		selector: '#b_announce',
+		common: 'announce.png',
+		hover: 'announce_hover.png'
+	},
+	{
+		selector: '#b_sushe',
+		common: 'sushe.png',
+		hover: 'sushe_hover.png'
+	},
+	
+	{
+		selector: '#b_wellandtree',
+		common: 'wellandtree.png',
+		hover: 'wellandtree_hover.png'
+	},
+	{
+		selector: '#b_yushi',
+		common: 'yushi.png',
+		hover: 'yushi_hover.png'
+	},
+	
+	{
+		selector: '#b_shitang',
+		common: 'shitang.png',
+		hover: 'shitang_hover.png'
+	},
+	{
+		selector: '#b_xiaomaipu',
+		common: 'xiaomaipu.png',
+		hover: 'xiaomaipu_hover.png'
+	},
+	
+	{
+		selector: '#b_jiaoxuelou',
+		common: 'jiaoxuelou.png',
+		hover: 'jiaoxuelou_hover.png'
+	},
+	{
+		selector: '#b_library',
+		common: 'library.png',
+		hover: 'library_hover.png'
+	},
+	{
+		selector: '#b_lake',
+		common: 'lake.png',
+		hover: 'lake_hover.png'
+	},
+	{
+		selector: '#b_sport',
+		common: 'sport.png',
+		hover: 'sport_hover.png'
+	}
+];
+
 MouseEventManager.init('#main');
-
-MouseEventManager.add('mouseover', ps[0], function(){
-	var src = $('#b_announce').attr('src');
-	src = src.replace('announce.png', 'announce_hover.png');
-	$('#b_announce').attr('src', src);
-});
-MouseEventManager.add('mouseout', ps[0], function(){
-	var src = $('#b_announce').attr('src');
-	src = src.replace('announce_hover.png', 'announce.png');
-	$('#b_announce').attr('src', src);
-});
-
-MouseEventManager.add('mouseover', ps[1], function(){
-	var src = $('#b_sushe').attr('src');
-	src = src.replace('sushe.png', 'sushe_hover.png');
-	$('#b_sushe').attr('src', src);
-});
-MouseEventManager.add('mouseout', ps[1], function(){
-	var src = $('#b_sushe').attr('src');
-	src = src.replace('sushe_hover.png', 'sushe.png');
-	$('#b_sushe').attr('src', src);
-});
+for(var i = 0, len = mouseoverEvents.length; i < len; i++){
+	var info = mouseoverEvents[i];
+	!function(info){
+		MouseEventManager.add('mouseover', ps[i], function(){
+			var src = $(info.selector).attr('src');
+			src = src.replace(info.common, info.hover);
+			$(info.selector).attr('src', src);
+		});
+		MouseEventManager.add('mouseout', ps[i], function(){
+			var src = $(info.selector).attr('src');
+			src = src.replace(info.hover, info.common);
+			$(info.selector).attr('src', src);
+		});
+	}(info);
+}
 
 
 $(window).resize(function(e){
@@ -141,53 +195,8 @@ var resizeBuildingsRegion = function(){
 
 resizeBuildingsRegion();
 
-var Bubble = function(options){
-	this._initBubble(options);
-};
-/**
- * options = {value, container, left, top}
- */
-Bubble.prototype = {
-	_initBubble: function(options){
-		this.options = options;
-		this.maxWidthScale = 9.47916666666667;
-		this.minWidthScale = 3.90625;
-		this.widthDiff = this.maxWidthScale - this.minWidthScale;
-		
-		this.maxHeightScale = 22.59259259259259;
-		this.minHeightScale = 9.25925925925926;
-		this.heightDiff = this.maxHeightScale - this.minHeightScale;
-		
-		this.fontScale = 0.3072;
-		this._initUI();
-	},
-	
-	_initUI: function(){
-		var value = this.options.value;
-		var bubbleBox = document.createElement('div');
-		bubbleBox.className = 'bubble';
-		var img = new Image();
-		img.src = 'resource/images/bubble.png';
-		var span = document.createElement('span');
-		var displayValue = value > 999 ? '999+' : value;
-		var calValue = value > 999 ? 1000 :  value;
-		span.innerHTML = displayValue;
-		var percent = calValue / 1000;
-		var ws = this.widthDiff * percent  + this.minWidthScale;
-		var hs = this.heightDiff * percent + this.minHeightScale;
-		$(bubbleBox).css({
-			width: ws + '%',
-			height: hs + '%',
-			left: this.options.left,
-			top: this.options.top,
-			fontSize: ws * this.fontScale + '%'
-		});
-		bubbleBox.appendChild(img);
-		bubbleBox.appendChild(span);
-		$(this.options.container).append(bubbleBox);
-	}
-};
 
+/*
 new Bubble({
 	container: '#main',
 	left: '25%',
@@ -201,6 +210,7 @@ new Bubble({
 	top: '20%',
 	value: 500
 });
+*/
 </script>
 </body>
 </html>
