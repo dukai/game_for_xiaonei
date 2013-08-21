@@ -40,51 +40,39 @@ a:hover{color:#007ad5;}
 
 #main{
 	width:100%;
-	position:relative;
-}
-#main .layer{
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
 	height:100%;
+	position:relative;
+	overflow:hidden;
 }
 
 #g_bg{
 	display:block;
 	width:100%;
 }
-#b_sushe, #b_lake, #b_sport, #b_library, #b_jiaoxuelou, #b_announce, #b_wellandtree, #b_yushi, #b_shitang, #b_xiaomaipu, #b_shubaoting, .bubble, #school{
-	position:absolute;
-	
-}
-#b_sushe, #b_lake, #b_sport, #b_library, #b_jiaoxuelou, #b_announce, #b_wellandtree, #b_yushi, #b_shitang, #b_xiaomaipu, #b_shubaoting{
+#main .layer{
 	width:100%;
+	height:100%;
+	position:absolute;
 	top:0;
 	left:0;
-	
-}
-#b_sushe{
-}
-#b_lake{
 }
 
-#b_sport{
+#l_bulidings div{
+	font-size:0;
+	line-height:0;
+	position: absolute;
+	width:100%;
+}
+#l_bulidings div img{
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
 }
 
-#b_library{
-}
-#b_jiaoxuelou{
-}
-#b_announce{
-}
-#b_wellandtree{
-}
-#b_yushi{
-}
-#b_shitang{
-}
-#b_xiaomaipu{
+
+#b_shubaoting, .bubble, #school{
+	position:absolute;
 }
 #menu, #logo, #userinfo{
 	position:fixed;
@@ -93,6 +81,10 @@ a:hover{color:#007ad5;}
 	width:10.52083333333333%;
 	left:0;
 	bottom:0;
+}
+
+#menu.close{
+	left:-9%;
 }
 
 #userinfo{
@@ -151,4 +143,17 @@ a:hover{color:#007ad5;}
 	bottom:17.31481481481481%;
 	font-size:1.14583333333333%;
 	text-align:center;
+}
+
+#mask{
+	position: fixed;
+	width:100%;
+	height:100%;
+	background:#fff;
+	background:rgba(255,255, 255, .8);
+	z-index: 999;
+	top:0;
+	left:0;
+	font-size:3%;
+	text-align: center;
 }
