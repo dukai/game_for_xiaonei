@@ -8,48 +8,67 @@
 <body>
 
 <div id="main">
-<img id="g_bg" src="resource/images/bg1920.jpg" />	
+	<img id="g_bg" src="resource/images/bg1920.jpg" />	
+	
+	<div id="l_bulidings" class="layer">
+		<div id="b_lake">
+			<img src="resource/images/lake.png">
+			<img src="resource/images/lake_hover.png">
+		</div>
+		<div id="b_sport">
+			<img src="resource/images/sport.png">
+			<img src="resource/images/sport_hover.png">
+		</div>
+		<div id="b_sushe">
+			<img src="resource/images/sushe.png">
+			<img src="resource/images/sushe_hover.png">
+		</div>
+		<div id="b_announce">
+			<img src="resource/images/announce.png">
+			<img src="resource/images/announce_hover.png">
+		</div>
+		<div id="b_wellandtree">
+			<img src="resource/images/wellandtree.png">
+			<img src="resource/images/wellandtree_hover.png">
+		</div>
+		<div id="b_yushi">
+			<img src="resource/images/yushi.png">
+			<img src="resource/images/yushi_hover.png">
+		</div>
+		<div id="b_library">
+			<img src="resource/images/library.png">
+			<img src="resource/images/library_hover.png">
+		</div>
+		<div id="b_shitang">
+			<img src="resource/images/shitang.png">
+			<img src="resource/images/shitang_hover.png">
+		</div>
+		<div id="b_jiaoxuelou">
+			<img src="resource/images/jiaoxuelou.png">
+			<img src="resource/images/jiaoxuelou_hover.png">
+		</div>
+		<div id="b_xiaomaipu">
+			<img src="resource/images/xiaomaipu.png">
+			<img src="resource/images/xiaomaipu_hover.png">
+		</div>
+	</div>
+	<!--canvas id="subline" width="1920" height="1080"></canvas-->
+	<div class="layer_ui" class="layer">
+		<img id="menu" src="resource/images/menu.png" class="close" />
+		<img id="userinfo" src="resource/images/userinfo.png" />
+		<img id="logo" src="resource/images/logo.png" />	
+	</div>
 
-<div id="layer2" class="layer">
-	<img id="b_sushe" src="resource/images/sushe.png" />
-	<img id="b_lake" src="resource/images/lake.png" />
-	<img id="b_sport" src="resource/images/sport.png" />
-	<img id="b_library" src="resource/images/library.png" />
-	<img id="b_jiaoxuelou" src="resource/images/jiaoxuelou.png" />
-	<img id="b_announce" src="resource/images/announce.png" />
-	<img id="b_wellandtree" src="resource/images/wellandtree.png" />
-	<img id="b_yushi" src="resource/images/yushi.png" />
-	<img id="b_shitang" src="resource/images/shitang.png" />
-	<img id="b_xiaomaipu" src="resource/images/xiaomaipu.png" />
-	<img id="b_shubaoting" src="resource/images/shubaoting.png" />	
+	<div id="school">中国海洋大学</div>
+
+
 </div>
-
-<div class="layer_ui" class="layer">
-	<img id="menu" src="resource/images/menu.png" />
-	<img id="userinfo" src="resource/images/userinfo.png" />
-	<img id="logo" src="resource/images/logo.png" />	
-</div>
-
-
-
-<!--div class="bubble">
-	<img src="resource/images/bubble.png" />
-	<span>999+</span>
-</div>
-
-<div class="bubble small">
-	<img src="resource/images/bubble.png" />
-	<span>1</span>
-</div-->
-
-
-<div id="school">中国海洋大学</div>
-
-<canvas id="subline" width="1920" height="1080"></canvas>
-</div>
+<div id="mask">!</div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
 <script src="resource/js/vector.js"></script>
 <script src="resource/js/event-manager.js"></script>
+<script src="resource/js/resource-loader.js"></script>
+<script src="resource/js/main.js"></script>
 <script>
 /**
  * bubble 尺寸与字体大小的比例 0.3072
@@ -78,122 +97,7 @@
 //体育馆
 //[1034, 407], [1381, 498], [1482, 548], [1723, 414], [1414, 226]
 
-var buildingsCoordinates = [
-	//公告牌
-	[[142, 385], [142, 460], [254, 400], [254, 327]],
-	//宿舍楼
-	[[274, 281], [274, 412], [450, 500], [690, 367], [690, 224], [530, 140]],
-	//树和井
-	[[0,501], [46, 609], [181, 629], [185, 500], [115, 448]],
-	//浴室
-	[[342, 553], [189, 660], [191, 722], [259, 756], [393, 761], [484, 732], [477, 650], [457, 612]],
-	//餐厅
-	[[499, 709], [449, 835], [593, 908], [765, 820], [620, 650]],
-	//小卖铺
-	[[892, 807], [756, 872], [760, 1000], [900, 1056], [1033, 1000], [1037, 874]],
-	//教学楼
-	[[916, 656], [916, 780], [1104, 878], [1420, 697], [1420, 577], [1230,475]],
-	//图书馆
-	[[553, 466],[532, 519], [530, 632], [677, 702 ], [1042, 510], [1039, 417], [867 ,306]],
-	//湖泊
-	[[926, 330] ,[1085, 423], [1357, 282], [1179, 189]],
-	//体育馆
-	[[1296, 407], [1381, 498], [1482, 548], [1723, 414], [1414, 226]]
-];
-var ps = [];
-for(var i= 0, len = buildingsCoordinates.length; i < len; i++){
-	ps.push(new Polygon(buildingsCoordinates[i]));
-}
 
-var mouseoverEvents = [
-	{
-		selector: '#b_announce',
-		common: 'announce.png',
-		hover: 'announce_hover.png'
-	},
-	{
-		selector: '#b_sushe',
-		common: 'sushe.png',
-		hover: 'sushe_hover.png'
-	},
-	
-	{
-		selector: '#b_wellandtree',
-		common: 'wellandtree.png',
-		hover: 'wellandtree_hover.png'
-	},
-	{
-		selector: '#b_yushi',
-		common: 'yushi.png',
-		hover: 'yushi_hover.png'
-	},
-	
-	{
-		selector: '#b_shitang',
-		common: 'shitang.png',
-		hover: 'shitang_hover.png'
-	},
-	{
-		selector: '#b_xiaomaipu',
-		common: 'xiaomaipu.png',
-		hover: 'xiaomaipu_hover.png'
-	},
-	
-	{
-		selector: '#b_jiaoxuelou',
-		common: 'jiaoxuelou.png',
-		hover: 'jiaoxuelou_hover.png'
-	},
-	{
-		selector: '#b_library',
-		common: 'library.png',
-		hover: 'library_hover.png'
-	},
-	{
-		selector: '#b_lake',
-		common: 'lake.png',
-		hover: 'lake_hover.png'
-	},
-	{
-		selector: '#b_sport',
-		common: 'sport.png',
-		hover: 'sport_hover.png'
-	}
-];
-
-MouseEventManager.init('#main');
-for(var i = 0, len = mouseoverEvents.length; i < len; i++){
-	var info = mouseoverEvents[i];
-	!function(info){
-		MouseEventManager.add('mouseover', ps[i], function(){
-			var src = $(info.selector).attr('src');
-			src = src.replace(info.common, info.hover);
-			$(info.selector).attr('src', src);
-		});
-		MouseEventManager.add('mouseout', ps[i], function(){
-			var src = $(info.selector).attr('src');
-			src = src.replace(info.hover, info.common);
-			$(info.selector).attr('src', src);
-		});
-	}(info);
-}
-
-
-$(window).resize(function(e){
-	resizeBuildingsRegion();
-});
-//var context = document.getElementById('subline').getContext('2d');
-var resizeBuildingsRegion = function(){
-	//context.clearRect(0, 0, 1920, 1080);
-	var percent = $('#main').width() / 1920;
-	$('body').css('font-size', $('#main').width() + 'px');
-	for(var i = 0, len = ps.length; i< len; i++){
-		ps[i].resize(percent);
-		//ps[i].draw(context);
-	}
-};
-
-resizeBuildingsRegion();
 
 
 /*
