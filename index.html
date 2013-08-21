@@ -38,7 +38,6 @@
 <div id="school">中国海洋大学</div>
 
 <canvas id="subline" width="1920" height="1080"></canvas>
-
 </div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
 <script src="resource/js/vector.js"></script>
@@ -97,24 +96,8 @@ var ps = [];
 for(var i= 0, len = buildingsCoordinates.length; i < len; i++){
 	ps.push(new Polygon(buildingsCoordinates[i]));
 }
-//p.draw('subline');
-//p2.draw('subline');
-
 
 MouseEventManager.init('#main');
-/*
-$('#main').mousemove(function(e){
-	var x = e.offsetX, y = e.offsetY;
-	if(p.collision(e.clientX, e.clientY)){
-		console.log('进入了公告牌');
-	}
-	
-	if(p2.collision(e.clientX, e.clientY)){
-		console.log('进入了宿舍楼');
-	}
-});
-
-*/
 
 MouseEventManager.add('mouseover', ps[0], function(){
 	var src = $('#b_announce').attr('src');
@@ -154,6 +137,10 @@ var resizeBuildingsRegion = function(){
 };
 
 resizeBuildingsRegion();
+
+var Bubble = function(){
+	
+};
 
 </script>
 </body>
