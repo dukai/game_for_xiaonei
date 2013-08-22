@@ -11,6 +11,10 @@
 	<img id="g_bg" src="resource/images/bg1920.jpg" />	
 	
 	<div id="l_bulidings" class="layer">
+		<div id="b_gate">
+			<img src="resource/images/gate.png">
+			<img src="resource/images/gate_hover.png">
+		</div>
 		<div id="b_shubaoting">
 			<img src="resource/images/shubaoting.png">
 		</div>
@@ -66,11 +70,17 @@
 			</ul>
 		</div>
 		
-		<div id="userinfo">
-			<img src="resource/images/userinfo.png" />
-			<span>刘老二童鞋</span>
-			<em>(3) 积分:888888</em>
-			<a class="logout">登出</a>
+		<div id="userinfo" class="login">
+			<div class="info">
+				<img src="resource/images/userinfo.png" />
+				<span>刘老二童鞋</span>
+				<em>(3) 积分:888888</em>
+				<a id="btn_logout" class="logout">登出</a>
+			</div>
+			<div class="reg">
+				<img src="resource/images/unlogin.png" />
+				<span id="btn_login">登录 | 注册</span>
+			</div>
 		</div>
 		
 		<img id="logo" src="resource/images/logo.png" />	
@@ -78,7 +88,7 @@
 
 	<div id="school">中国海洋大学</div>
 
-	<div id="college_select_layer" class="layer">
+	<div id="college_select_layer" class="layer" style="display: none;">
 		<img src="resource/images/pop_college.png" class="bg" />
 		<img class="btn_close" src="resource/images/btn_close.png" />
 		<div id="oc_s_college" class="suggest">
@@ -208,6 +218,7 @@
 		</div>
 		<div id="c_c_btn" class="btn_submit">提&nbsp;&nbsp;交</div>
 	</div>
+	
 </div>
 <div id="mask">!</div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
@@ -215,6 +226,7 @@
 <script src="resource/js/event-manager.js"></script>
 <script src="resource/js/resource-loader.js"></script>
 <script src="resource/js/component.js"></script>
+<script src="resource/js/bubble.js"></script>
 <script src="resource/js/main.js"></script>
 <script>
 /**
@@ -241,9 +253,75 @@ $('.btn_create').click(function(e){
 	$('#college_select_layer').hide();
 	$('#college_create_layer').show();
 });
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '31%',
+	top: '10%',
+	id: 'sushe'
+});
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '11%',
+	top: '18%',
+	id: 'announce'
+});
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '4%',
+	top: '32%',
+	id: 'wellandtree'
+});
 
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '42%',
+	top: '32%',
+	id: 'library'
+});
 
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '20%',
+	top: '42%',
+	id: 'yushi'
+});
 
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '34%',
+	top: '52%',
+	id: 'shitang'
+});
+
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '68%',
+	top: '42%',
+	id: 'jiaoxuelou'
+});
+
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '78%',
+	top: '22%',
+	id: 'sport'
+});
+
+new Bubble({
+	value: 888,
+	container: '#main',
+	left: '58%',
+	top: '11%',
+	id: 'lake'
+});
 </script>
 </body>
 </html>
