@@ -76,7 +76,7 @@ a:hover{color:#007ad5;}
 }
 
 #layer_ui{
-	z-index:999;
+	z-index:99;
 }
 
 #layer_ui img{
@@ -185,7 +185,7 @@ a:hover{color:#007ad5;}
 	top:0;
 	left:0;
 }
-
+/*气泡样式*/
 .bubble{
 	width:9.47916666666667%;
 	height:22.59259259259259%;
@@ -227,7 +227,7 @@ a:hover{color:#007ad5;}
 	font-size:1.14583333333333%;
 	text-align:center;
 }
-
+/*遮罩图层， 载入进度条*/
 #mask{
 	position: fixed;
 	width:100%;
@@ -240,8 +240,8 @@ a:hover{color:#007ad5;}
 	font-size:3%;
 	text-align: center;
 }
-
-#college_select_layer{
+/*选择学校相应图层*/
+.college_layer{
 	position:absolute;
 	width:100%;
 	height:100%;
@@ -250,39 +250,42 @@ a:hover{color:#007ad5;}
 	background:url(../images/obbg.png);
 	background:rgba(0,0,0,.5);
 	font-size:1%;
+	z-index:999;
 }
-#college_select_layer img.bg{
+.college_layer img.bg{
 	width:100%;
 	height:100%;
 }
-#college_select_layer .btn_close{
+.college_layer img.btn_close{
 	width:5.20833333333333%;
 	position: absolute;
-	right:28%;
-	top:11%;
 	cursor:pointer;
 }
+#college_change_layer .btn_close{
+	right:26.5%;
+	top:8.5%;
+}
 
-#college_create_layer{
-	position:absolute;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	background:url(../images/obbg.png);
-	background:rgba(0,0,0,.5);
-	font-size:1%;
+#c_ca_college{
+	left:43.38541666666667%;
+	top:32.77777777777778%;
+}
+
+#college_change_layer .btn_submit{
+	left:52.34375%;
+	top:59.81481481481481%;
+}
+#college_select_layer .btn_close{
+	right:28%;
+	top:11%;
 }
 
 #college_create_layer img.bg{
 	width: 100%;
 }
 #college_create_layer .btn_close{
-	width:5.20833333333333%;
-	position: absolute;
 	right:5%;
 	top:3%;
-	cursor:pointer;
 }
 
 #oc_s_college{
@@ -321,7 +324,9 @@ a:hover{color:#007ad5;}
 	height:100%;
 }
 
-
+/**
+ * 列表样式，自定义下拉框，提示框
+ */
 .suggest{position:absolute;}
 .suggest .current{
 	width:100%;height:100%;
