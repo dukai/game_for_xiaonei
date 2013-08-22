@@ -37,6 +37,17 @@ MouseEventManager = {
 			}
 	},
 	
+	_click: function(e){
+		this._setPointerPosition(e);
+		var pos = this._getPointerPosition();
+		
+		for(var i in this._eventsPool.click){
+			var event = this._eventsPool.click[i];
+			var status = event.target.collision(pos[0], pos[1]);
+			status && event.callback.call(event.target, e);
+		}
+	},
+	
 	_setPointerPosition: function(e){
 		this._mouseX = e.pageX;
 		this._mouseY = e.pageY;
@@ -87,5 +98,9 @@ MouseEventManager = {
 		$(selector).mousemove(function(e){
 			self._mousemove(e);
 		});
+		
+		$(selector).click(function(e){
+			self._click(e);
+		})
 	}
 };
