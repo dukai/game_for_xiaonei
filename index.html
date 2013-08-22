@@ -76,10 +76,134 @@
 	<div id="school">中国海洋大学</div>
 
 	<div id="college_select_layer" class="layer">
-		<div class="box">
-			<img src="resource/images/pop_college.png" class="bg" />
+		<img src="resource/images/pop_college.png" class="bg" />
+		<img class="btn_close" src="resource/images/btn_close.png" />
+		<div id="oc_s_college" class="suggest">
+			<div class="current">
+				<input type="text" name="college_name" />
+			</div>
+			<div class="suggest_list">
+				<ul>
+					<li>2005</li>
+					<li>2006</li>
+					<li>2007</li>
+					<li>2008</li>
+					<li>2009</li>
+					<li>2010</li>
+				</ul>
+				
+			</div>
 		</div>
 		
+		
+		<div id="oc_s_year" class="suggest ctms">
+			<input type="hidden" name="year" />
+			<div class="current">请选择年份</div>
+			<div class="suggest_list">
+				<ul>
+					<li>2005</li>
+					<li>2006</li>
+					<li>2007</li>
+					<li>2008</li>
+					<li>2009</li>
+					<li>2010</li>
+				</ul>
+				
+			</div>
+		</div>
+			
+		<a href="#" class="btn_submit">提&nbsp;交</a>
+		<div href="#" class="btn_create"><img src="resource/images/btn_create.png" /></div>
+	</div>
+	<div id="college_create_layer" class="layer" style="display: none;">
+		<img class="bg" src="resource/images/college_create.png" />
+		<img class="btn_close" src="resource/images/btn_close.png" />
+		<div id="c_s_college" class="suggest">
+			<div class="current">
+				<input type="text" name="college_name" placeholder="请选择大学" />
+			</div>
+			<div class="suggest_list">
+				<ul>
+					<li>中国海洋大学</li>
+					<li>北京大学</li>
+					<li>清华大学</li>
+				</ul>
+				
+			</div>
+		</div>
+		
+		<div id="c_s_year" class="suggest ctms">
+			<div class="current">
+				请选择入学年份
+			</div>
+			<div class="suggest_list">
+				<ul>
+					<li>2005</li>
+					<li>2006</li>
+					<li>2007</li>
+					<li>2008</li>
+					<li>2009</li>
+					<li>2010</li>
+				</ul>
+				
+			</div>
+			<input type="hidden" />
+		</div>
+		
+		<div id="c_s_btn" class="btn_submit">提&nbsp;&nbsp;交</div>
+		<div id="c_s_btn_create"><img src="resource/images/btn_create.png" /></div>
+		
+		<div id="c_c_area" class="suggest ctms">
+			<div class="current">
+				请选择区域
+			</div>
+			<div class="suggest_list">
+				<ul>
+					<li>北京</li>
+					<li>上海</li>
+					<li>山东</li>
+				</ul>
+				
+			</div>
+			<input type="hidden" />
+		</div>
+		
+		<div id="c_c_yead" class="suggest ctms">
+			<div class="current">
+				请选择年份
+			</div>
+			<div class="suggest_list">
+				<ul>
+					<li>2005</li>
+					<li>2006</li>
+					<li>2007</li>
+					<li>2008</li>
+					<li>2009</li>
+					<li>2010</li>
+				</ul>
+				
+			</div>
+			<input type="hidden" />
+		</div>
+		
+		<div id="c_c_college" class="suggest">
+			<div class="current">
+				<input type="text" name="college_name" placeholder="请选择大学" />
+			</div>
+			<div class="suggest_list">
+				<ul>
+					<li>中国海洋大学</li>
+					<li>北京大学</li>
+					<li>清华大学</li>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="c_c_btn_blue" class="btn_blue">
+			综合大学
+			<img src="resource/images/check.png" />
+		</div>
+		<div id="c_c_btn" class="btn_submit">提&nbsp;&nbsp;交</div>
 	</div>
 </div>
 <div id="mask">!</div>
@@ -87,11 +211,36 @@
 <script src="resource/js/vector.js"></script>
 <script src="resource/js/event-manager.js"></script>
 <script src="resource/js/resource-loader.js"></script>
+<script src="resource/js/component.js"></script>
 <script src="resource/js/main.js"></script>
 <script>
 /**
  * bubble 尺寸与字体大小的比例 0.3072
  */
+
+
+$('.ctms').each(function(index){
+	new CTMS({
+		container: this
+	})
+});
+
+
+setInterval(function(){
+	
+}, 200);
+
+$('img.btn_close').click(function(e){
+	$(this.parentNode).hide();
+});
+
+$('.btn_create').click(function(e){
+	$('#college_select_layer').hide();
+	$('#college_create_layer').show();
+});
+
+
+
 </script>
 </body>
 </html>
