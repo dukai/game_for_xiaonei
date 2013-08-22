@@ -209,4 +209,9 @@ $("#btn_logout").click(function(){
 	$("#userinfo").removeClass('login');
 })
 
+$('#college_select_layer .btn_submit').click(function(){
+	$('#school').html($("#c_s_l_cn").val());
+	$('#college_select_layer').hide();
+});
+
 };
