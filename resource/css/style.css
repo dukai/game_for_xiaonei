@@ -202,7 +202,7 @@ a:hover{color:#007ad5;}
 	text-align: center;
 }
 
-#college_select{
+#college_select_layer{
 	position:absolute;
 	width:100%;
 	height:100%;
@@ -211,11 +211,15 @@ a:hover{color:#007ad5;}
 	background:rgba(0,0,0,.5);
 	font-size:1%;
 }
-#college_select img.bg{
+#college_select_layer .box{
 	width:46.875%;
 	display:block;
 	position:absolute;
 	top:10%;
 	left:50%;
 	margin-left:-23.4375%;
+}
+
+#college_select_layer .box img.bg{
+	width:100%;
 }
