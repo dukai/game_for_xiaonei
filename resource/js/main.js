@@ -64,7 +64,9 @@ var buildingsCoordinates = [
 	//教学楼
 	[[916, 656], [916, 780], [1104, 878], [1420, 697], [1420, 577], [1230,475]],
 	//小卖铺
-	[[892, 807], [756, 872], [760, 1000], [900, 1056], [1033, 1000], [1037, 874]]
+	[[892, 807], [756, 872], [760, 1000], [900, 1056], [1033, 1000], [1037, 874]],
+	//gate
+	[[1523, 864], [1525,1056], [1826, 1007], [1870, 877], [1856, 817]]
 	
 	
 	
@@ -108,6 +110,12 @@ var mouseoverEvents = [
 	},
 	{
 		selector: 'xiaomaipu'
+	},
+	{
+		selector: 'gate', 
+		onclick: function(){
+			$("#college_change_layer").show();
+		}
 	}
 	
 	
@@ -129,6 +137,12 @@ for(var i = 0, len = mouseoverEvents.length; i < len; i++){
 			$(info.imgHover).hide();
 			$('#bub_' + info.selector).fadeOut();
 		});
+		if(info.onclick){
+			MouseEventManager.add('click', ps[i], function(e){
+				info.onclick();
+			});
+		}
+		
 	}(info);
 }
 
