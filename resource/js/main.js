@@ -122,9 +122,12 @@ for(var i = 0, len = mouseoverEvents.length; i < len; i++){
 	!function(info){
 		MouseEventManager.add('mouseover', ps[i], function(){
 			$(info.imgHover).show();
+			
+			$('#bub_' + info.selector).fadeIn();
 		});
 		MouseEventManager.add('mouseout', ps[i], function(){
 			$(info.imgHover).hide();
+			$('#bub_' + info.selector).fadeOut();
 		});
 	}(info);
 }
@@ -149,17 +152,47 @@ var resizeBuildingsRegion = function(){
 };
 
 resizeBuildingsRegion();
-
-$("#menu").click(function(e){
-	if(this.open){
-		$(this).animate({left: '-9%'});
-	}else{
-		$(this).animate({left: 0});
+var Menu = {
+	init: function(){
+		var self = this;
+		setTimeout(function(){
+			self.close();
+		}, 3000);
+		
+		this.initEvents();
+	},
+	
+	initEvents: function(){
+		var self = this;
+		
+		$("#menu").hover(function(e){
+			self.open();
+		}, function(e){
+			self.close();
+		});
+	},
+	
+	open: function(){
+		$('#menu').animate({left: 0});
+	},
+	
+	close: function(){
+		$('#menu').animate({left: '-9%'});
 	}
-	this.open = !this.open;
-});
+};
+
+Menu.init();
+setTimeout(function(){
+	$('.bubble').fadeOut();
+}, 3000);
 
 
+$("#btn_login").click(function(){
+	$("#userinfo").addClass('login');
+})
 
+$("#btn_logout").click(function(){
+	$("#userinfo").removeClass('login');
+})
 
 };
