@@ -7,12 +7,10 @@ var Bubble = function(options){
 Bubble.prototype = {
 	_initBubble: function(options){
 		this.options = options;
-		this.maxWidthScale = 9.47916666666667;
-		this.minWidthScale = 3.90625;
+		this.maxWidthScale = 8.6;
 		this.widthDiff = this.maxWidthScale - this.minWidthScale;
 		
-		this.maxHeightScale = 22.59259259259259;
-		this.minHeightScale = 9.25925925925926;
+		this.maxHeightScale = 21;
 		this.heightDiff = this.maxHeightScale - this.minHeightScale;
 		
 		this.fontScale = 0.3072;
@@ -23,24 +21,26 @@ Bubble.prototype = {
 		var value = this.options.value;
 		var bubbleBox = document.createElement('div');
 		bubbleBox.className = 'bubble';
+		bubbleBox.id = 'bub_' + this.options.id;
 		var img = new Image();
 		img.src = 'resource/images/bubble.png';
 		var span = document.createElement('span');
 		var displayValue = value > 999 ? '999+' : value;
-		var calValue = value > 999 ? 1000 :  value;
 		span.innerHTML = displayValue;
-		var percent = calValue / 1000;
-		var ws = this.widthDiff * percent  + this.minWidthScale;
-		var hs = this.heightDiff * percent + this.minHeightScale;
+		var i = document.createElement('i');
+		i.innerHTML = '条秘籍';
+		var ws = this.maxWidthScale;
+		var hs = this.maxHeightScale;
 		$(bubbleBox).css({
 			width: ws + '%',
 			height: hs + '%',
 			left: this.options.left,
 			top: this.options.top,
-			fontSize: ws * this.fontScale + '%'
+			fontSize: '3%'
 		});
 		bubbleBox.appendChild(img);
 		bubbleBox.appendChild(span);
+		bubbleBox.appendChild(i);
 		$(this.options.container).append(bubbleBox);
 	}
 };
