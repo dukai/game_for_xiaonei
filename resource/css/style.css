@@ -381,6 +381,9 @@ a:hover{color:#007ad5;}
 	font-size:120%;
 	line-height:1.6;
 }
+.btn_submit:hover{
+	color:#fff;
+}
 
 #c_s_btn{
 	top:60.74074074074074%;
