@@ -74,6 +74,14 @@ a:hover{color:#007ad5;}
 #b_shubaoting, .bubble, #school{
 	position:absolute;
 }
+
+#layer_ui{
+}
+
+#layer_ui img{
+	display:block;
+}
+
 #menu, #logo, #userinfo{
 	position:fixed;
 }
@@ -91,8 +99,27 @@ a:hover{color:#007ad5;}
 	width:27.1875%;
 	top:0;
 	right:0;
+	font-size:1.5%;
 }
-
+#userinfo img{
+	width:100%;
+	height:20%;
+}
+#userinfo span{
+	position:absolute;
+	top:12%;
+	left:6%
+}
+#userinfo em{
+	position:absolute;
+	top:12%;
+	left:56%
+}
+#userinfo a.logout{
+	position:absolute;
+	right:6%;
+	top:65%;
+}
 #logo{
 	width:24.27083333333333%;
 	left:0;
