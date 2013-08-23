@@ -4,12 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Intel</title>
 <style>
-	#test img{width:50%;}
+	#test{
+		width:100%;
+		height:300px;
+		background:url(resource/images/bg1920.jpg);
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(            src='resource/images/bg1920.jpg', sizingMethod='scale');
+		background-size:100% 100%;
+	}
 </style>
 </head>
 <body>
-	<div id="test" style="width:500px;height:500px;background:#f00;position:relative;">
-		<img src="resource/images/announce.png" />
+	<div id="test" style="position:relative;">
 	</div>
 	<script src="resource/js/jquery-1.9.1.min.js"></script>
 	<script>

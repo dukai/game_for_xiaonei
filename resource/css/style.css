@@ -37,17 +37,15 @@ a:hover{color:#007ad5;}
 }
 .noboder{border:0 !important;}
 .nomargin{margin:0 !important;}
-
+/************************************************END通用样式END********************************************************/
 #main{
 	width:100%;
-	height:100%;
+	height:1080px;
 	position:relative;
 	overflow:hidden;
-}
-
-#g_bg{
-	display:block;
-	width:100%;
+	background:url(../images/bg1920.jpg);
+	background-size:100% 100%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='resource/images/bg1920.jpg', sizingMethod='scale');
 }
 #main .layer{
 	width:100%;
@@ -70,7 +68,6 @@ a:hover{color:#007ad5;}
 	top:0;
 }
 
-
 #b_shubaoting, .bubble, #school{
 	position:absolute;
 }
@@ -87,7 +84,7 @@ a:hover{color:#007ad5;}
 	position:fixed;
 }
 #menu{
-	width:10.52083333333333%;
+	width:10.5208%;
 	left:0;
 	bottom:0;
 	font-size:1%;
@@ -100,13 +97,24 @@ a:hover{color:#007ad5;}
 	position:absolute;
 	top:0;
 	height:100%;
+	width:100%;
 }
 #menu ul li{
-	font-size:150%;
+	font-size:180%;
 	text-indent:1em;
-	line-height:4;
-	height:33.33333333%;
+	width:100%;
+	position:absolute;
 }
+#menu ul li.home{
+	top:20%;
+}
+#menu ul li.active_exp{
+	top:50%;
+}
+#menu ul li.person_center{
+	top:80%;
+}
+
 #menu.close{
 	left:-9%;
 }
@@ -117,7 +125,7 @@ a:hover{color:#007ad5;}
 	font-size:1%;
 	z-index: 999;
 	width:27.1875%;
-	height:13.14814814814815%;
+	height:13.1481%;
 }
 #userinfo .info{
 	width:100%;
@@ -148,8 +156,8 @@ a:hover{color:#007ad5;}
 }
 
 #userinfo .reg{
-	width:57.47126436781609%;
-	height:57.55395683453237%;
+	width:57.4713%;
+	height:57.554%;
 	position:absolute;
 	right:0;
 	top:0;
@@ -174,11 +182,50 @@ a:hover{color:#007ad5;}
 	display:block;
 }
 #logo{
-	width:24.27083333333333%;
+	width:24.2708%;
 	left:0;
 	top:0;
 	z-index: 999;
 }
+/*********************载入界面**********************/
+#loading_mask{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background:url(../images/loading.jpg);
+	background-size:100% 100%;
+	background-color:#06c;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='resource/images/loading.jpg', sizingMethod='scale');
+	
+	z-index:9999;
+	font-size:1%;
+}
+#loading_mask .progress{
+	width:21.25%;
+	height:3.4259%;
+	position:absolute;
+	bottom:5.8333%;
+	right:2.1875%;
+	background:#fff;
+}
+#loading_mask .bar{
+	width:70%;
+	height:100%;
+	background:#f90;
+}
+#loading_mask .progress span{
+	position:absolute;
+	top:0;
+	left:0;
+	color:#2d8ccc;
+	display:block;
+	width:100%;
+	font-size:150%;
+	text-align:center;
+}
+
 
 #subline{
 	position:absolute;
@@ -187,8 +234,8 @@ a:hover{color:#007ad5;}
 }
 /*气泡样式*/
 .bubble{
-	width:9.47916666666667%;
-	height:22.59259259259259%;
+	width:9.4792%;
+	height:22.5926%;
 	font-size:3%;
 }
 .bubble img{
@@ -220,11 +267,11 @@ a:hover{color:#007ad5;}
 	top:44%;
 }
 #school{
-	width:11.97916666666667%;
-	height:2.77777777777778%;
+	width:11.9792%;
+	height:2.7778%;
 	right:7.1875%;
-	bottom:17.31481481481481%;
-	font-size:1.14583333333333%;
+	bottom:17.3148%;
+	font-size:1.1458%;
 	text-align:center;
 }
 /*遮罩图层， 载入进度条*/
@@ -257,7 +304,7 @@ a:hover{color:#007ad5;}
 	height:100%;
 }
 .college_layer img.btn_close{
-	width:5.20833333333333%;
+	width:5.2083%;
 	position: absolute;
 	cursor:pointer;
 }
@@ -267,13 +314,13 @@ a:hover{color:#007ad5;}
 }
 
 #c_ca_college{
-	left:43.38541666666667%;
-	top:32.77777777777778%;
+	left:43.3854%;
+	top:32.7778%;
 }
 
 #college_change_layer .btn_submit{
 	left:52.34375%;
-	top:59.81481481481481%;
+	top:59.8148%;
 }
 #college_select_layer .btn_close{
 	right:28%;
@@ -289,33 +336,33 @@ a:hover{color:#007ad5;}
 }
 
 #oc_s_college{
-	left:43.02083333333333%;
-	top:27.87037037037037%;
-	width:18.02083333333333%;
-	height:3.88888888888889%;
+	left:43.0208%;
+	top:27.8704%;
+	width:18.0208%;
+	height:3.8889%;
 	z-index:99;
 }
 #oc_s_college input{
-	width:86.1271676300578%;
+	width:86.1272%;
 }
 #oc_s_year{
-	left:43.02083333333333%;
-	top:37.96296296296296%;
-	width:18.02083333333333%;
-	height:3.88888888888889%;
+	left:43.0208%;
+	top:37.963%;
+	width:18.0208%;
+	height:3.8889%;
 }
 
 #college_select_layer .btn_submit{
-	left:52.13541666666667%;
-	top:63.14814814814815%;
+	left:52.1354%;
+	top:63.1481%;
 }
 
 .btn_create{
 	width:3.125%;
-	height:5.55555555555556%;
+	height:5.5556%;
 	position:absolute;
-	top:70.64814814814815%;
-	left:62.13541666666667%;
+	top:70.6481%;
+	left:62.1354%;
 	cursor: pointer;
 }
 
@@ -372,50 +419,50 @@ a:hover{color:#007ad5;}
 }
 
 #c_s_college{
-	width:18.02083333333333%;
-	height:3.88888888888889%;
-	top:25.46296296296296%;
-	left:20.57291666666667%;
+	width:18.0208%;
+	height:3.8889%;
+	top:25.463%;
+	left:20.5729%;
 	z-index: 99;
 }
 
 #c_s_college input{
-	width:86.1271676300578%;
+	width:86.1272%;
 }
 
 #c_s_year{
-	width:18.02083333333333%;
-	height:3.88888888888889%;
-	top:35.55555555555556%;
-	left:20.57291666666667%;
+	width:18.0208%;
+	height:3.8889%;
+	top:35.5556%;
+	left:20.5729%;
 }
 
 #c_c_area{
-	width:9.79166666666667%;
-	height:3.88888888888889%;
-	top:24.25925925925926%;
-	left:57.70833333333333%;
+	width:9.7917%;
+	height:3.8889%;
+	top:24.2593%;
+	left:57.7083%;
 	z-index: 99;
 }
 
 #c_c_yead{
-	width:9.79166666666667%;
-	height:3.88888888888889%;
-	top:34.35185185185185%;
-	left:57.70833333333333%;
+	width:9.7917%;
+	height:3.8889%;
+	top:34.3519%;
+	left:57.7083%;
 	z-index:9;
 }
 
 #c_c_college{
-	width:17.76041666666667%;
-	height:3.88888888888889%;
-	top:24.25925925925926%;
+	width:17.7604%;
+	height:3.8889%;
+	top:24.2593%;
 	left:71.5625%;
 }
 
 .btn_submit{
-	width:8.85416666666667%;
-	height:3.88888888888889%;
+	width:8.8542%;
+	height:3.8889%;
 	background:#ff9000;
 	color:#fff;
 	cursor:pointer;
@@ -430,15 +477,15 @@ a:hover{color:#007ad5;}
 }
 
 #c_s_btn{
-	top:60.74074074074074%;
-	left:29.79166666666667%;
+	top:60.7407%;
+	left:29.7917%;
 }
 
 #c_s_btn_create{
 	width:3.125%;
-	height:5.55555555555556%;
+	height:5.5556%;
 	position:absolute;
-	top:68.24074074074074%;
+	top:68.2407%;
 	left:39.6875%;
 	cursor: pointer;
 }
@@ -449,8 +496,8 @@ a:hover{color:#007ad5;}
 }
 
 .btn_blue{
-	width:9.79166666666667%;
-	height:3.88888888888889%;
+	width:9.7917%;
+	height:3.8889%;
 	background:#0071c5;
 	position:absolute;
 	font-size:120%;
@@ -461,13 +508,13 @@ a:hover{color:#007ad5;}
 .btn_blue img{
 	position:absolute;
 	height:100%;
-	width:22.34042553191489%;
+	width:22.3404%;
 	top:0;
 	right:0;
 }
 #c_c_btn_blue{
 	top:52.5%;
-	left:57.70833333333333%;
+	left:57.7083%;
 }
 
 #c_c_btn{

@@ -8,8 +8,12 @@
 <body>
 
 <div id="main">
-	<img id="g_bg" src="resource/images/bg1920.jpg" />	
-	
+	<div id="loading_mask">
+		<div class="progress">
+			<div class="bar"></div>
+			<span>拼命读取中....</span>
+		</div>
+	</div>
 	<div id="l_bulidings" class="layer">
 		<div id="b_gate">
 			<img src="resource/images/gate.png">
@@ -17,6 +21,7 @@
 		</div>
 		<div id="b_shubaoting">
 			<img src="resource/images/shubaoting.png">
+			<img src="resource/images/shubaoting_hover.png">
 		</div>
 		<div id="b_lake">
 			<img src="resource/images/lake.png">
@@ -62,11 +67,11 @@
 	<!--canvas id="subline" width="1920" height="1080"></canvas-->
 	<div id="layer_ui" class="layer">
 		<div id="menu">
-			<img src="resource/images/menu.png" class="close" />
+			<img src="resource/images/menu.png" />
 			<ul>
-				<li>首页</li>
-				<li>活动说明</li>
-				<li>个人中心</li>
+				<li class="home">首页</li>
+				<li class="active_exp">活动说明</li>
+				<li class="person_center">个人中心</li>
 			</ul>
 		</div>
 		
@@ -230,7 +235,6 @@
 					<li>北京大学</li>
 					<li>清华大学</li>
 				</ul>
-				
 			</div>
 		</div>
 		<div id="c_c_btn_blue" class="btn_blue">
@@ -241,7 +245,6 @@
 	</div>
 	
 </div>
-<div id="mask">!</div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
 <script src="resource/js/vector.js"></script>
 <script src="resource/js/event-manager.js"></script>

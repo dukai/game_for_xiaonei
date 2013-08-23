@@ -1,4 +1,5 @@
 var resources = [
+	{'name': 'loading', type: 'image', src: 'resource/images/loading.jpg'},
 	{'name': 'bg1920', type: 'image', src: 'resource/images/bg1920.jpg'},
 	{'name': 'announce', type: 'image', src: 'resource/images/announce.png'},
 	{'name': 'announce_hover', type: 'image', src: 'resource/images/announce_hover.png'},
@@ -32,13 +33,13 @@ var resources = [
 resourceLoader.load(resources);
 
 resourceLoader.onProgress = function(e){
-	$('#mask').show();
-	$('#mask').html(parseInt(e.loadedCount / e.totalCount * 100) + '%');
+	$('#loading_mask').show();
+	$('#loading_mask .progress .bar').css('width', parseInt(e.loadedCount / e.totalCount * 100) + '%');
 };
 
 resourceLoader.onComplete = function(){
 //隐藏遮罩图层
-$("#mask").hide();
+$("#loading_mask").hide();
 //初始化鼠标事件
 MouseEventManager.init('#main');
 //建筑物可点击区域	
@@ -66,9 +67,10 @@ var buildingsCoordinates = [
 	//小卖铺
 	[[892, 807], [756, 872], [760, 1000], [900, 1056], [1033, 1000], [1037, 874]],
 	//gate
-	[[1523, 864], [1525,1056], [1826, 1007], [1870, 877], [1856, 817]]
+	[[1523, 864], [1525,1056], [1826, 1007], [1870, 877], [1856, 817]],
 	
-	
+	//书报亭
+	[[713, 115], [717, 195], [780, 230], [836, 200], [830, 120], [768, 87]]
 	
 ];
 var ps = [];
@@ -104,7 +106,6 @@ var mouseoverEvents = [
 		selector: 'shitang'
 	},
 	
-	
 	{
 		selector: 'jiaoxuelou'
 	},
@@ -116,6 +117,10 @@ var mouseoverEvents = [
 		onclick: function(){
 			$("#college_change_layer").show();
 		}
+	},
+	
+	{
+		selector: 'shubaoting'
 	}
 	
 	
@@ -158,6 +163,7 @@ var resizeBuildingsRegion = function(){
 	//canvas.height = $('#main').height();
 	//context.clearRect(0, 0, 1920, 1080);
 	var percent = $('#main').width() / 1920;
+	$('#main').height(parseInt(1080 * percent));
 	$('body').css('font-size', $('#main').width() + 'px');
 	for(var i = 0, len = ps.length; i< len; i++){
 		ps[i].resize(percent);
@@ -195,7 +201,7 @@ var Menu = {
 	}
 };
 
-Menu.init();
+//Menu.init();
 setTimeout(function(){
 	$('.bubble').fadeOut();
 }, 3000);
