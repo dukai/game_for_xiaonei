@@ -201,7 +201,7 @@ var Menu = {
 	}
 };
 
-//Menu.init();
+Menu.init();
 setTimeout(function(){
 	$('.bubble').fadeOut();
 }, 3000);
@@ -219,5 +219,7 @@ $('#college_select_layer .btn_submit').click(function(){
 	$('#school').html($("#c_s_l_cn").val());
 	$('#college_select_layer').hide();
 });
-
+$('#menu ul li.active_exp').click(function(e){
+	$('#activity_layer').show();
+});
 };
