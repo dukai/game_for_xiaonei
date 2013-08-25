@@ -56,8 +56,6 @@ a:hover{color:#007ad5;}
 }
 
 #l_bulidings div{
-	font-size:0;
-	line-height:0;
 	position: absolute;
 	width:100%;
 }
@@ -66,6 +64,7 @@ a:hover{color:#007ad5;}
 	position:absolute;
 	left:0;
 	top:0;
+	display:block;
 }
 
 #b_shubaoting, .bubble, #school{
@@ -134,28 +133,35 @@ a:hover{color:#007ad5;}
 #userinfo .info img{
 	width:100%;
 }
-#userinfo .info span{
+#userinfo .info span.username{
 	font-size:150%;
 	position:absolute;
 	top:12%;
 	left:6%
 }
-#userinfo .info em{
+#userinfo .info span.mailcount{
 	font-size:150%;
 	position:absolute;
 	top:12%;
 	left:56%
+}
+
+#userinfo .info span.score{
+	font-size:150%;
+	position:absolute;
+	top:12%;
+	left:64%
 }
 #userinfo  a.logout{
 	font-size:150%;
 	position:absolute;
 	right:6%;
 	top:65%;
+	cursor:pointer;
 }
 
 #userinfo .reg{
 	width:57.4713%;
-	height:57.554%;
 	position:absolute;
 	right:0;
 	top:0;
@@ -165,11 +171,12 @@ a:hover{color:#007ad5;}
 	width:100%;
 }
 
-#userinfo .reg span{
+#userinfo .reg a{
 	font-size:150%;
 	position:absolute;
 	top:20%;
 	right:15%;
+	cursor:pointer;
 }
 
 #userinfo.login .reg{
@@ -187,24 +194,27 @@ a:hover{color:#007ad5;}
 /*********************载入界面**********************/
 #loading_mask{
 	width:100%;
-	height:100%;
-	position:absolute;
+	position:fixed;
 	top:0;
 	left:0;
+	/*
 	background:url(../images/loading.jpg);
 	background-size:100% 100%;
 	background-color:#06c;
 	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='resource/images/loading.jpg', sizingMethod='scale');
-	
+	**/
 	z-index:9999;
 	font-size:1%;
+}
+#loading_mask img.bg{
+	width:100%;
 }
 #loading_mask .progress{
 	width:21.25%;
 	height:3.4259%;
 	position:absolute;
-	bottom:5.8333%;
-	right:2.1875%;
+	top:90.6482%;
+	left:76.5625%;
 	background:#fff;
 }
 #loading_mask .bar{
@@ -212,7 +222,7 @@ a:hover{color:#007ad5;}
 	height:100%;
 	background:#f90;
 }
-#loading_mask .progress span{
+#loading_mask .progress .word{
 	position:absolute;
 	top:0;
 	left:0;
@@ -243,7 +253,7 @@ a:hover{color:#007ad5;}
 .bubble span{
 	position:absolute;
 	z-index:9;
-	font-size:100%;
+	font-size:90%;
 	/*top:24.59016393442623%;*/
 	top:0;
 	left:0;
@@ -313,6 +323,8 @@ a:hover{color:#007ad5;}
 #c_ca_college{
 	left:43.3854%;
 	top:32.7778%;
+	width:17.7083%;
+	height:3.8889%;
 }
 
 #college_change_layer .btn_submit{
